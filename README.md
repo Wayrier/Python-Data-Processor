@@ -1,5 +1,7 @@
 # Python Data Processor
 
+[![Python CI](https://github.com/Wayrier/Python-Data-Processor/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Wayrier/Python-Data-Processor/actions/workflows/python-ci.yml)
+
 ETL-style utility that loads CSV/JSON, cleans columns, drops empty rows, de-duplicates,
 optionally filters with a pandas `query`, and writes CSV/JSON. Includes tests and a CLI.
 
