@@ -1,0 +1,32 @@
+[
+  {
+    "id":1,
+    "name":"Anna",
+    "age":28,
+    "city":"Berlin"
+  },
+  {
+    "id":2,
+    "name":"Mark",
+    "age":35,
+    "city":"Hamburg"
+  },
+  {
+    "id":3,
+    "name":"Lisa",
+    "age":22,
+    "city":"M\u00fcnchen"
+  },
+  {
+    "id":4,
+    "name":"Tom",
+    "age":35,
+    "city":"Hamburg"
+  },
+  {
+    "id":5,
+    "name":"Anna",
+    "age":28,
+    "city":"Berlin"
+  }
+]
