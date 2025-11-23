@@ -5,8 +5,15 @@
 ETL-style utility that loads CSV/JSON, cleans columns, drops empty rows, de-duplicates,
 optionally filters with a pandas `query`, and writes CSV/JSON. Includes tests and a CLI.
 
-### 📘 Projektdokumentation
-➡️ Siehe: [project_documentation.ipynb](./project_documentation.ipynb)
+## 📘 Projektdokumentation
+
+Die komplette Dokumentation befindet sich im Ordner **Docs**:
+
+1. [01_overview.ipynb](./Docs/01_overview.ipynb) – Überblick & Architektur  
+2. [02_setup.ipynb](./Docs/02_setup.ipynb) – Installation & Umgebung  
+3. [03_usage.ipynb](./Docs/03_usage.ipynb) – Beispiele & Anwendung  
+4. [04_testing.ipynb](./Docs/04_testing.ipynb) – Tests & Qualitätssicherung  
+5. [05_future_work.ipynb](./Docs/05_future_work.ipynb) – Roadmap & Erweiterungen  
 
 ## Features
 - Input: **CSV/JSON** → Output: **CSV/JSON**
