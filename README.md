@@ -2,41 +2,70 @@
 
 [![Python CI](https://github.com/Wayrier/Python-Data-Processor/actions/workflows/python-ci.yml/badge.svg)](https://github.com/Wayrier/Python-Data-Processor/actions/workflows/python-ci.yml)
 
-ETL-style utility that loads CSV/JSON, cleans columns, drops empty rows, de-duplicates,
-optionally filters with a pandas `query`, and writes CSV/JSON. Includes tests and a CLI.
-
-## 📘 Projektdokumentation
-
-Die komplette Dokumentation befindet sich im Ordner **Docs**:
-
-1. [01_overview.ipynb](./Docs/01_overview.ipynb) – Überblick & Architektur  
-2. [02_setup.ipynb](./Docs/02_setup.ipynb) – Installation & Umgebung  
-3. [03_usage.ipynb](./Docs/03_usage.ipynb) – Beispiele & Anwendung  
-4. [04_testing.ipynb](./Docs/04_testing.ipynb) – Tests & Qualitätssicherung  
-5. [05_future_work.ipynb](./Docs/05_future_work.ipynb) – Roadmap & Erweiterungen
-6. [06_code_overview.ipynb](./Docs/06_code_overview.ipynb) – Übersicht über den Code, Funktionen und CLI-Struktur
-
+A small ETL-style command-line utility for CSV and JSON files. It loads data, normalizes column names, drops empty rows, removes duplicates, optionally filters rows with a pandas query, and writes the result back to CSV or JSON.
 
 ## Features
-- Input: **CSV/JSON** → Output: **CSV/JSON**
-- Cleans column names to `snake_case`
-- Drops fully-empty rows
-- Optional de-duplication (subset of columns)
+
+- CSV/JSON input and CSV/JSON output
+- Column cleanup to `snake_case`
+- Removal of fully empty rows
+- Optional duplicate removal by selected columns
 - Filtering via `pandas.DataFrame.query`
-- CLI with commands: `summary`, `convert`, `filter`
+- CLI commands: `summary`, `convert`, `filter`
+- Automated tests with pytest and GitHub Actions
+
+## Tech Stack
+
+- Python 3.11+
+- pandas
+- Typer
+- pytest
+- GitHub Actions
+
+## Project Documentation
+
+Additional documentation is available in the `Docs` folder:
+
+1. [Overview](./Docs/01_overview.ipynb)
+2. [Setup](./Docs/02_setup.ipynb)
+3. [Usage](./Docs/03_usage.ipynb)
+4. [Testing](./Docs/04_testing.ipynb)
+5. [Future Work](./Docs/05_future_work.ipynb)
+6. [Code Overview](./Docs/06_code_overview.ipynb)
 
 ## Quickstart
-```bash
-# Windows (PowerShell)
+
+Create a virtual environment and install dependencies:
+
+```powershell
 py -m venv .venv
 .\.venv\Scripts\activate
 pip install -r requirements.txt
+$env:PYTHONPATH = "src"
+```
 
-# Summary
-python -m src.pydata_processor.cli summary data/sample.csv
+Run the CLI:
 
-# Convert CSV -> JSON
-python -m src.pydata_processor.cli convert data/sample.csv out.json
+```powershell
+python -m pydata_processor.cli summary data/sample.csv
+python -m pydata_processor.cli convert data/sample.csv out.json
+python -m pydata_processor.cli filter data/sample.csv out.csv --query "amount > 100" --subset "name"
+```
 
-# Filter & save (remove dups by Name; keep Amount > 100)
-python -m src.pydata_processor.cli filter data/sample.csv out.csv --query "amount > 100" --subset "name"
+For macOS/Linux shells, use this instead of the PowerShell `PYTHONPATH` command:
+
+```bash
+export PYTHONPATH=src
+```
+
+## Tests
+
+```bash
+python -m pytest -q
+```
+
+The GitHub Actions workflow runs the test suite on Python 3.11 and 3.12.
+
+## Example Data
+
+The repository includes `data/sample.csv` for quick local testing.
